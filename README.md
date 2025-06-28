@@ -1,5 +1,4 @@
 # produtos-baby-by
-:
 
 📦 Repositório: Produtos Baby by
 Site institucional e loja online desenvolvido para a marca Produtos Baby by, especializada em bordados personalizados para bebês. O projeto tem como objetivo apresentar os produtos de forma encantadora e funcional, proporcionando uma experiência agradável para os clientes.
