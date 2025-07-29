@@ -22,6 +22,8 @@ Organização por categorias de produtos
 
 Integração com redes sociais e WhatsApp
 
+Deploy do projeto: (Produtos-Baby)[https://produtos-baby-by.netlify.app/]
+
 📍 Sobre a Marca
 Produtos Baby by atua há mais de 7 anos bordando com carinho peças personalizadas para compor o enxoval do bebê. Localizada em Ipava – SP, a marca é referência em qualidade e atenção aos detalhes.
 
