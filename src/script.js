@@ -1,19 +1,15 @@
-// ========================================
-// JAVASCRIPT CORRIGIDO PARA CARROSSEL DE IMAGENS
-// ========================================
 
-// Carrinho de compras
+
+
 let cart = [];
 let cartCount = 0;
 let cartTotal = 0;
 
-// Variáveis globais para controle do carrossel
 let autoSlideIntervals = new Map();
 let isUserInteracting = false;
 
-// ========================================
-// INICIALIZAÇÃO PRINCIPAL
-// ========================================
+
+
 document.addEventListener('DOMContentLoaded', function() {
     initializeCart();
     initializeImageCarousel();
@@ -26,9 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNotificationSystem();
 });
 
-// ========================================
-// SISTEMA DE CARROSSEL DE IMAGENS CORRIGIDO
-// ========================================
 
 function initializeImageCarousel() {
     const productCards = document.querySelectorAll('.product-card');
@@ -39,11 +32,11 @@ function initializeImageCarousel() {
         
         if (images.length <= 1) return;
         
-        // Configurar estado inicial
+     
         let currentIndex = 0;
         card.dataset.currentIndex = currentIndex;
         
-        // Garantir que apenas a primeira imagem esteja ativa
+        
         images.forEach((img, index) => {
             img.classList.toggle('active', index === 0);
         });
@@ -51,10 +44,10 @@ function initializeImageCarousel() {
             dot.classList.toggle('active', index === 0);
         });
         
-        // Configurar auto-slide
+      
         setupAutoSlide(card, cardIndex);
         
-        // Configurar event listeners
+      
         setupCardInteractionListeners(card);
         setupDotsNavigation(card);
         setupArrowNavigation(card);
@@ -135,9 +128,7 @@ function setupArrowNavigation(card) {
     }
 }
 
-// ========================================
-// FUNÇÕES DE NAVEGAÇÃO CORRIGIDAS
-// ========================================
+
 
 function navigateToImage(card, direction) {
     const images = card.querySelectorAll('.product-image');
@@ -145,7 +136,7 @@ function navigateToImage(card, direction) {
     const currentIndex = parseInt(card.dataset.currentIndex) || 0;
     let newIndex;
     
-    // Calcular novo índice
+  
     if (direction === 'next') {
         newIndex = (currentIndex + 1) % images.length;
     } else if (direction === 'prev') {
@@ -156,17 +147,17 @@ function navigateToImage(card, direction) {
         return;
     }
     
-    // Validar índice
+    
     if (newIndex < 0 || newIndex >= images.length) return;
     if (newIndex === currentIndex) return;
     
-    // Aplicar transição
+    
     applyImageTransition(card, currentIndex, newIndex);
     
-    // Atualizar estado
+    
     card.dataset.currentIndex = newIndex;
     
-    // Atualizar dots
+
     updateDots(dots, newIndex);
     
     console.log(`Navegando de ${currentIndex} para ${newIndex} em card com ${images.length} imagens`);
@@ -175,10 +166,10 @@ function navigateToImage(card, direction) {
 function applyImageTransition(card, fromIndex, toIndex) {
     const images = card.querySelectorAll('.product-image');
     
-    // Remover active de todas as imagens
+    
     images.forEach(img => img.classList.remove('active'));
     
-    // Adicionar active à nova imagem
+   
     images[toIndex].classList.add('active');
 }
 
@@ -188,9 +179,6 @@ function updateDots(dots, activeIndex) {
     });
 }
 
-// ========================================
-// CONTROLE DE AUTO-SLIDE
-// ========================================
 
 function pauseAutoSlide(card) {
     const interval = autoSlideIntervals.get(card);
@@ -221,9 +209,7 @@ function pauseAutoSlideTemporarily(card, duration = 8000) {
     }, duration);
 }
 
-// ========================================
-// SISTEMA DE MODAL PARA IMAGENS
-// ========================================
+
 
 function initializeImageModal() {
     createModalIfNotExists();
@@ -301,9 +287,6 @@ function closeImageModal() {
     document.body.style.overflow = 'auto';
 }
 
-// ========================================
-// NAVEGAÇÃO POR TECLADO
-// ========================================
 
 function initializeKeyboardNavigation() {
     let focusedCard = null;
@@ -341,9 +324,7 @@ function initializeKeyboardNavigation() {
     });
 }
 
-// ========================================
-// NAVEGAÇÃO TOUCH/SWIPE CORRIGIDA
-// ========================================
+
 
 function initializeTouchNavigation() {
     let touchStartX = 0;
@@ -376,10 +357,10 @@ function initializeTouchNavigation() {
         const diffX = touchStartX - touchX;
         const diffY = touchStartY - touchY;
         
-        // Se movimento horizontal é maior que vertical
+     
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) {
             isDragging = true;
-            e.preventDefault(); // Prevenir scroll
+            e.preventDefault(); 
             console.log('Dragging horizontally:', diffX);
         }
     }, { passive: false });
@@ -399,23 +380,23 @@ function initializeTouchNavigation() {
         
         console.log('Touch end - diffX:', diffX, 'timeDiff:', timeDiff);
         
-        // Verificar se é um swipe válido
+        
         const isQuickSwipe = timeDiff < 800;
         const isLongEnoughSwipe = Math.abs(diffX) > 30;
         
         if (isQuickSwipe && isLongEnoughSwipe) {
             if (diffX > 0) {
-                // Swipe left - próxima imagem
+                
                 console.log('Swipe left - próxima imagem');
                 navigateToImage(activeCard, 'next');
             } else {
-                // Swipe right - imagem anterior
+             
                 console.log('Swipe right - imagem anterior');
                 navigateToImage(activeCard, 'prev');
             }
             pauseAutoSlideTemporarily(activeCard, 6000);
             
-            // Vibração se disponível
+           
             if (navigator.vibrate) {
                 navigator.vibrate(50);
             }
@@ -429,9 +410,7 @@ function initializeTouchNavigation() {
     }, { passive: true });
 }
 
-// ========================================
-// SISTEMA DE NOTIFICAÇÕES
-// ========================================
+
 
 function initializeNotificationSystem() {
     if (!document.getElementById('notifications-container')) {
@@ -494,9 +473,7 @@ function showNotification(message, type = 'success', duration = 3000) {
     });
 }
 
-// ========================================
-// RESTO DAS FUNÇÕES (CARRINHO, ETC.)
-// ========================================
+
 
 function initializeCart() {
     const savedCart = localStorage.getItem('babyCart');
@@ -580,7 +557,7 @@ function initializeScrollEffects() {
     animatedElements.forEach(el => observer.observe(el));
 }
 
-// Adicionar ao carrinho
+
 document.addEventListener('click', function(e) {
     if (e.target.classList.contains('add-to-cart')) {
         const name = e.target.dataset.name;
@@ -721,7 +698,7 @@ function clearCart() {
     cartDropdown.classList.remove('active');
 }
 
-// Smooth scrolling
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -736,7 +713,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Close cart when clicking outside
+
 document.addEventListener('click', function(e) {
     const cartDropdown = document.getElementById('cart-dropdown');
     const cartIcon = document.querySelector('.cart-icon');
@@ -746,9 +723,8 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Cleanup intervals when page unloads
+
 window.addEventListener('beforeunload', function() {
     autoSlideIntervals.forEach(interval => clearInterval(interval));
 });
 
-// FUNÇÕES LEGADAS REMOVIDAS - Agora tudo funciona via event listeners
