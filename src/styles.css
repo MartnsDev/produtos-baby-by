@@ -1,31 +1,29 @@
-/* Importando fontes */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
 
-/* Variáveis de cor - Tema Baby */
 :root {
-    --primary: #e8b9b9;            /* Rosa claro elegante - destaque principal */
-    --primary-dark: #c89f88;       /* Marrom rosado - bom para hover e contraste */
-    --secondary: #f1e2d5;          /* Bege suave - para fundo de seções ou cartões */
-    --accent: #e6d4c7;             /* Bege acinzentado claro - detalhes sutis */
+    --primary: #e8b9b9;        
+    --primary-dark: #c89f88;     
+    --secondary: #f1e2d5;         
+    --accent: #e6d4c7;           
 
-    --text-dark: #4f3b37;          /* Marrom escuro - texto principal */
-    --text-light: #ffffff;         /* Branco puro - texto em fundos escuros */
+    --text-dark: #4f3b37;     
+    --text-light: #ffffff;         
+    --background: #fffdf9;        
+    --background-alt: #fdf5f0;     
 
-    --background: #fffdf9;         /* Quase branco com tom quente - fundo geral */
-    --background-alt: #fdf5f0;     /* Fundo alternativo - ótimo para seções especiais */
+    --shadow: rgba(200, 170, 150, 0.15); 
 
-    --shadow: rgba(200, 170, 150, 0.15); /* Sombra marrom/bege suave - profundidade leve */
+    --whatsapp: #DEB887;        
+    --instagram: #E4405F;     
 
-    --whatsapp: #DEB887;           /* Verde WhatsApp padrão */
-    --instagram: #E4405F;          /* Rosa Instagram padrão */
-
-    --soft-pink: #f7ede2;          /* Rosa bebê delicado - para fundos suaves */
-    --soft-blue: #e8f0f5;          /* Azul acinzentado - neutro e calmo */
-    --soft-yellow: #fff8e1;        /* Amarelo pastel - usado em detalhes simpáticos */
-    --soft-green: #e6f5ec;         /* Verde pastel - tom suave para elementos de confirmação */
+    --soft-pink: #f7ede2;        
+    --soft-blue: #e8f0f5;        
+    --soft-yellow: #fff8e1;       
+    --soft-green: #e6f5ec;      
 }
 
-/* Reset e estilos base */
+
 * {
     margin: 0;
     padding: 0;
@@ -68,7 +66,7 @@ img {
     transition: transform 0.5s ease;
 }
 
-/* Botões */
+
 .button {
     display: inline-flex;
     align-items: center;
@@ -116,7 +114,7 @@ img {
     background: linear-gradient(135deg, #D2691E, #D2691E);
 }
 
-/* Navbar */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -211,7 +209,6 @@ img {
     width: 80%;
 }
 
-/* Hero Section */
 .hero {
     min-height: 100vh;
     background: linear-gradient(135deg, var(--soft-pink) 0%, var(--soft-blue) 50%, var(--soft-yellow) 100%);
@@ -324,7 +321,6 @@ img {
     filter: drop-shadow(0 15px 40px rgba(232, 185, 185, 0.4));
 }
 
-/* Animação suave de flutuação para o ursinho */
 @keyframes gentleFloat {
     0%, 100% { 
         transform: translateY(0px) rotate(0deg); 
@@ -359,7 +355,6 @@ img {
     50% { transform: translateY(-10px); }
 }
 
-/* Produtos Section */
 .featured {
     padding: 100px 0;
     background-color: var(--background-alt);
@@ -397,7 +392,7 @@ img {
     font-size: 1.1rem;
 }
 
-/* Categories */
+
 .categories {
     display: flex;
     justify-content: center;
@@ -425,7 +420,7 @@ img {
     box-shadow: 0 5px 15px var(--shadow);
 }
 
-/* Products Grid */
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -467,12 +462,11 @@ img {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Product Image Container - AJUSTADO PARA 1259x1600 */
 .product-image-container {
     position: relative;
     width: 100%;
-    /* Aspect ratio baseado em 1259x1600 = 0.787 */
-    padding-bottom: 127.1%; /* (1600/1259) * 100% = 127.1% */
+    
+    padding-bottom: 127.1%;
     overflow: hidden;
     background: #ffffff;
     border-radius: 20px 20px 0 0;
@@ -492,7 +486,7 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Configuração para manter proporção 1259x1600 sem distorção */
+
     object-fit: contain;
     object-position: center;
     opacity: 0;
@@ -500,7 +494,7 @@ img {
     border-radius: 0;
     cursor: pointer;
     background: #ffffff;
-    /* Garantir que a imagem mantenha a proporção exata */
+  
     max-width: 100%;
     max-height: 100%;
 }
@@ -573,7 +567,7 @@ img {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Modal para visualização ampliada da imagem */
+
 .image-modal {
     position: fixed;
     top: 0;
@@ -603,7 +597,7 @@ img {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    /* Manter proporção 1259x1600 no modal */
+   
     aspect-ratio: 1259/1600;
 }
 
@@ -639,7 +633,7 @@ img {
     transform: scale(1.1);
 }
 
-/* Product Info */
+
 .product-info {
     padding: 25px;
     display: flex;
@@ -736,7 +730,7 @@ img {
     margin-right: 0;
 }
 
-/* About Section */
+
 .about {
     padding: 100px 0;
     background: linear-gradient(135deg, var(--background) 0%, var(--soft-pink) 100%);
@@ -794,7 +788,7 @@ img {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
+
 .footer {
     background: linear-gradient(135deg, var(--primary-dark), var(--primary));
     color: var(--text-light);
@@ -871,7 +865,6 @@ img {
     opacity: 0.8;
 }
 
-/* Carrinho flutuante */
 .cart-icon {
     position: fixed;
     bottom: 30px;
@@ -1006,12 +999,12 @@ img {
     transform: translateY(-2px);
 }
 
-/* Mobile Navigation */
+
 .nav-links-container {
     display: none;
 }
 
-/* RESPONSIVIDADE */
+
 @media (max-width: 768px) {
     .navbar .nav-links {
         display: none;
@@ -1074,12 +1067,12 @@ img {
         display: none;
     }
     
-    /* Ocultar imagem do ursinho no mobile */
+
     .hero-image {
         display: none;
     }
     
-    /* Ajustar o grid para ocupar toda a largura quando a imagem estiver oculta */
+
     .hero-content {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -1148,17 +1141,15 @@ img {
         padding-bottom: 120px;
     }
     
-    /* Ajustar container de imagem para mobile - mantendo proporção 1259x1600 */
+    
     .product-image-container {
-        padding-bottom: 127.1%; /* Manter a mesma proporção */
+        padding-bottom: 127.1%;
     }
     
-    /* Modal responsivo */
     .modal-content {
         max-width: 95%;
         max-height: 85%;
-        aspect-ratio: 1259/1600; /* Manter proporção no modal mobile */
-    }
+        aspect-ratio: 1259/1600; 
 }
 
 @media (max-width: 480px) {
@@ -1199,13 +1190,13 @@ img {
         width: 20%;
     }
     
-    /* Container de imagem para telas muito pequenas - mantendo proporção */
+
     .product-image-container {
-        padding-bottom: 127.1%; /* Manter proporção 1259x1600 */
+        padding-bottom: 127.1%; 
     }
 }
 
-/* Ajuste para manter proporção em telas maiores */
+
 @media (min-width: 769px) {
     .hero-image {
         max-width: 500px;
@@ -1217,9 +1208,9 @@ img {
         width: 100%;
     }
     
-    /* Container de imagem otimizado para desktop - proporção 1259x1600 */
+
     .product-image-container {
-        padding-bottom: 127.1%; /* Manter proporção exata */
+        padding-bottom: 127.1%; 
     }
 }
 
@@ -1232,13 +1223,12 @@ img {
         max-width: 550px;
     }
     
-    /* Container de imagem para telas grandes - proporção 1259x1600 */
     .product-image-container {
-        padding-bottom: 127.1%; /* Manter proporção exata */
+        padding-bottom: 127.1%; 
     }
 }
 
-/* Estilos para notificações */
+
 .notification {
     position: fixed;
     top: 20px;
